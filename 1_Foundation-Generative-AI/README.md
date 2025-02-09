@@ -35,6 +35,50 @@ In this project, I will bring together all of the essential components of a PyTo
 2. Evaluate the fine-tuned model: Repeats the earlier evaluation process (same metric(s) and dataset) to compare the fine-tuned version to the original version of the model.
 
 
-**Solution**
+## Solution
 
 Project 1 - [Notebook](LightweightFineTuning.ipynb)
+
+### Prerequisites
+
+Before using the script, make sure you have the required dependencies installed:
+
+```bash
+pip install torch transformers peft
+```
+
+Additionally, ensure that you have a trained model stored in `./model/gpt2-rotten-tomatoes-lora` or update the `model_path` in the script accordingly.
+
+### Running the Script
+You can run the script from the command line with a single text input or a file containing multiple texts.
+
+#### 1. Predict Sentiment of a Single Text
+```bash
+python SentimentAnalyzer.py --text "This movie was fantastic!"
+```
+
+Example Output:
+```
+Resultado da Predição:
+Texto: This movie was fantastic!
+Predição: POSITIVE
+Confiança: 98.34%
+Probabilidades:
+- NEGATIVE: 1.66%
+- POSITIVE: 98.34%
+```
+
+#### 2. Predict Sentiment from a File
+```bash
+python SentimentAnalyzer.py --file reviews.txt
+```
+Each line in `reviews.txt` should contain one review. The script will output predictions for each line.
+
+### Fine-Tuning Process
+
+This script is part of the **Udacity Generative AI Foundation** project. The fine-tuning process involved:
+
+1. **Loading a Pretrained Model**: GPT-2 model for sequence classification.
+2. **Preparing Dataset**: Rotten Tomatoes dataset for sentiment analysis.
+3. **Fine-Tuning with PEFT**: Used LoRA (Low-Rank Adaptation) for efficient training.
+4. **Evaluating Performance**: Compared fine-tuned model vs. original model.
