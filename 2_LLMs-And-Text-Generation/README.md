@@ -1,8 +1,8 @@
 # Udacity Project - Foundation Generative AI
 
-## Build Your Own Custom Chatbot
+## Project: Build Your Own Custom Chatbot
 
-### Data Sources
+#### Data Sources
 
 There are two main data sources we recommend using for this project: Wikipedia API and CSV data.
 
@@ -15,3 +15,14 @@ We have also provided a ``data`` directory containing CSV files that you can use
   * ``nyc_food_scrap_drop_off_sites.csv`` - this file contains locations, hours, and other information about food scrap drop-off sites in New York City. This information was retrieved in early 2023, and you can also get the latest version from this [open data portal](https://dev.socrata.com/foundry/data.cityofnewyork.us/if26-z6xq).
 
 You may also source your own data. For example, you might want to use web scraping or other documents you have on hand. The dataset must have at least **20 rows**, and it must be composed of **text data**. OpenAI language models are not optimized for numeric or logical reasoning, so number-heavy data like budgets, sensor data, or inventory are not appropriate.
+
+### Project Instructions
+
+Work for this project will primarily be completed in the Jupyter Notebook titled ``project.ipynb``. This notebook contains ``TODO`` indicators in the four places where you must complete tasks. These four tasks correspond to the four rubric items.
+
+### 1. Choose a Dataset and Explain the Scenario
+
+Consider the dataset choices described on the Project Overview page and select which dataset you are going to use for this project.
+
+In the second cell of the notebook, there is a ``TODO`` in a Markdown cell. Double-click on this text to edit it. Write a paragraph explaining which dataset you are using and why.
+

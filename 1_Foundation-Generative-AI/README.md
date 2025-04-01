@@ -1,6 +1,6 @@
 # Udacity Project - Foundation Generative AI
 
-## Apply Lightweight Fine-Tuning to a Foundation Model
+## Project: Apply Lightweight Fine-Tuning to a Foundation Model
 
 ### Project Introduction
 Lightweight fine-tuning is one of the most important techniques for adapting foundation models, because it allows you to modify foundation models for your needs without needing substantial computational resources.
