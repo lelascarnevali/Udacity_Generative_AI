@@ -61,4 +61,17 @@ The notebook includes at least one sentence explaining why the chosen dataset is
 
 ## Solution
 
-...
+Project 2 - [Notebook](2_LLMs-And-Text-Generation/project.ipynb)
+
+## Custom Performance Demonstration
+
+The comparison in the Notebook above shows how the model performs with and without custom context.
+
+- In the **basic prompt**, the model answers based only on its internal knowledge.
+- In the **custom prompt**, we retrieve semantically relevant text chunks from our dataset and include them in the prompt, improving the model's understanding.
+
+Each question is answered twice:
+1. Using the default prompt (basic model).
+2. Using a customized prompt based on similar dataset entries (via text embeddings).
+
+This clearly demonstrates that the custom prompt approach helps the model provide more relevant and specific responses.
