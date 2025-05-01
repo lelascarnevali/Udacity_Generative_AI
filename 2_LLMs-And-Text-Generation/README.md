@@ -61,7 +61,7 @@ The notebook includes at least one sentence explaining why the chosen dataset is
 
 ## Solution
 
-Project 2 - [Notebook](2_LLMs-And-Text-Generation/project.ipynb)
+Project 2 - [Notebook](project.ipynb)
 
 ## Custom Performance Demonstration
 
