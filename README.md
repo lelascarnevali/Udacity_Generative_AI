@@ -16,5 +16,7 @@ Each project in this repository represents a hands-on application of the concept
 ### PROJECT 1 - Foundation Generative AI
 
 Project 1 - [README.md](1_Foundation-Generative-AI/README.md)
+Lightweight fine-tuning of a foundation model for sentiment analysis.
 
 Project 2 - [README.md](2_LLMs-And-Text-Generation/README.md)
+Building a custom chatbot with LLMs and text generation techniques.
