@@ -13,6 +13,13 @@ You will be writing the code that powers the main functionality of the app: call
 
 The solution to this project is implemented in the Jupyter notebook. The notebook contains the code that powers the main functionality of the app: calling the SAM model and processing its output, as well as using a text2image diffusion model to generate the new background or subject.
 
+#### About CFG scale:
+
+* **Low CFG (around 3–5)** The model relies more on its internal training and less on the prompt. This tends to produce more creative or unexpected results but can ignore important prompt details.
+
+* **Mid CFG (6–8)** This range strikes a balance. The model pays attention to your prompt while still generating coherent, natural-looking images. It's usually the best choice for realistic or semi-realistic outputs, especially when the prompt is well-written.
+
+* **High CFG (9–15)** The model follows the prompt very literally, sometimes forcing in details that reduce realism or break visual coherence. This can be useful for very specific concepts, but often comes at the cost of natural image quality.
 
 ### System Requirements
 - **Hardware**: A GPU with CUDA support is recommended for efficient execution.
