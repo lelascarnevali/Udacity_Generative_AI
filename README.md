@@ -20,3 +20,6 @@ Lightweight fine-tuning of a foundation model for sentiment analysis.
 
 Project 2 - [README.md](2_LLMs-And-Text-Generation/README.md)
 Building a custom chatbot with LLMs and text generation techniques.
+
+Project 3 - [README.md](3_Computer-Vision-And-GenAI/README.md)
+Building an app that allows to select a subject and then change its background, OR keep the background and change the subject.
