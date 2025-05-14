@@ -96,3 +96,39 @@ Code Submission: Submit the Jupyter Notebook or Python program on the "Project S
 
 ## Solution
 
+### Workflow
+1. **Listing Generation**:
+   - The application uses a Large Language Model (OpenAI GPT-3.5-turbo via LangChain) to generate diverse real estate listings. Each listing is created using a prompt template that ensures consistent CSV formatting and rich property descriptions.
+   - At least 10 listings are generated, each with unique characteristics (e.g., modern apartment, lakefront property, eco-friendly house).
+
+2. **Data Storage and Vector Database**:
+   - The generated listings are saved to a CSV file and then loaded using LangChain's `CSVLoader`.
+   - Each listing is parsed and prepared for semantic search by extracting metadata and combining descriptive fields.
+   - Listings are embedded using OpenAI's embedding model and stored in a ChromaDB vector database for efficient similarity search.
+
+3. **Buyer Preferences Interface**:
+   - The application collects buyer preferences through a set of configurable questions and answers. These preferences are combined into a single string for semantic search.
+   - Users can easily modify the questions and answers to simulate different buyer scenarios.
+
+4. **Semantic Search**:
+   - The buyer's preferences string is used to perform a semantic search in the vector database, retrieving the most relevant property listings based on similarity.
+   - The top matching listings are selected for further personalization.
+
+5. **Personalized Listing Descriptions**:
+   - For each retrieved listing, the LLM is used to rewrite the property description, emphasizing features that match the buyer's preferences.
+   - The personalization process strictly maintains factual integrity, only rephrasing and highlighting existing details.
+
+6. **Testing and Customization**:
+   - The notebook is structured to allow easy testing with different buyer profiles. Users can change the buyer preferences and re-run the relevant cells to see how the personalized recommendations adapt.
+   - Example outputs are provided, showing both the original and personalized descriptions for each recommended listing.
+
+### Key Technologies
+- **LangChain** for LLM orchestration and prompt management
+- **OpenAI GPT-3.5-turbo** for text generation and personalization
+- **ChromaDB** for vector storage and semantic search
+- **Python** and **Jupyter Notebook** for interactive development and testing
+
+This solution demonstrates a full workflow for building a GenAI-powered real estate recommendation system, from data generation to personalized user experiences, using modern LLM and vector database technologies.
+
+### Submission
+Project 4 - [Notebook](project_4.ipynb)

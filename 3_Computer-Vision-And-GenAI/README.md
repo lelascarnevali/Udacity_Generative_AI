@@ -63,7 +63,7 @@ The solution to this project is implemented in the Jupyter notebook. The noteboo
 
 
 ### Submission
-Project 3 - [Notebook](3_Computer-Vision-And-GenAI/project_3.ipynb)
+Project 3 - [Notebook](project_3.ipynb)
 
 #### Interactive App Usage Demonstration
 The following screenshot demonstrates the interactive Gradio application in use. An image of a car was uploaded, points were used to generate a mask around the car, and a prompt was entered to change the background.
