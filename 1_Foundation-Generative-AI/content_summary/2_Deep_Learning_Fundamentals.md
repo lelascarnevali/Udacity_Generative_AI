@@ -1,12 +1,11 @@
-## O que é um Perceptron?
+### 1. O que é um Perceptron?
 
 O **perceptron** é um dos blocos construtivos mais **fundamentais da inteligência artificial**, atuando como um **classificador binário** simples. Ele recebe uma lista de números (um **vetor de números**), multiplica cada um por um **peso** específico, soma todos esses valores e então passa o resultado por uma **função de ativação**. A função de ativação original do perceptron era uma **função degrau**, que resultava em uma saída de 0 ou 1.
 
 O processo de ajustar esses pesos é chamado de **aprendizado**. O perceptron compara sua previsão com a resposta real e "empurra" os pesos para melhorar as previsões futuras. Embora um único perceptron possa não ser muito eficaz para tarefas complexas, sua simplicidade é a base para redes neurais mais elaboradas. As funções de ativação evoluíram; por exemplo, a função **ReLU (Unidade Linear Retificada)**, comum em redes neurais modernas, permite uma gama maior de valores de saída, proporcionando mais nuance ao processo de aprendizado.
 
 ---
-
-## O Perceptron de Múltiplas Camadas
+### 2. O Perceptron de Múltiplas Camadas
 
 O **Perceptron de Múltiplas Camadas (MLP)** é uma extensão do perceptron simples e representa um marco significativo na IA. O MLP é uma **rede neural artificial** composta por várias camadas de **nós** (ou neurônios), onde cada nó é um perceptron.
 
@@ -18,46 +17,42 @@ As camadas de um MLP incluem:
 A força de um MLP reside na sua capacidade de aprender com a experiência. Durante o **treinamento**, os pesos das conexões entre os neurônios em todas as camadas são ajustados para minimizar o número de erros. Cada neurônio em uma camada está conectado a cada neurônio na camada anterior, e esses pesos são ajustados iterativamente. No final, a camada de saída geralmente tem um número de neurônios igual ao número de classes no problema (por exemplo, um neurônio para "gato" e outro para "cachorro"), e a classe correspondente ao neurônio com o valor mais alto é a previsão.
 
 ---
-
-## Treinando Redes Neurais Profundas
+### 3. Treinando Redes Neurais Profundas
 
 O treinamento de redes neurais profundas, como os MLPs, envolve vários conceitos cruciais:
 
-### Criação de um Conjunto de Dados Rotulado
+#### Criação de um Conjunto de Dados Rotulado
 
 Um **conjunto de dados rotulado** é fundamental para o treinamento. Ele consiste em dados de entrada cuidadosamente emparelhados com os dados de saída correspondentes (os "rótulos"). Por exemplo, em um conjunto de dados de imagens de gatos e cachorros, cada imagem deve ser rotulada como "gato" ou "cachorro". A qualidade e o tamanho do conjunto de dados rotulado impactam diretamente a eficácia do modelo resultante.
 
-### Entendendo o Gradiente Descendente
+#### Entendendo o Gradiente Descendente
 
 **Gradiente descendente** é um algoritmo de otimização essencial usado para ajustar os parâmetros de modelos de aprendizado profundo. Seu objetivo é minimizar uma **função de custo** (também conhecida como função objetivo ou função de perda), que quantifica o erro do modelo.
 
 Durante cada iteração, o algoritmo ajusta os pesos do modelo em relação a um valor predefinido chamado **taxa de aprendizado**. A **taxa de aprendizado** determina o tamanho do passo em cada iteração: uma taxa muito grande pode fazer com que o algoritmo "ultrapasse" o mínimo, enquanto uma taxa muito pequena pode levar a tempos de convergência muito longos.
 
-### Usando Retropropagação para Treinar sua Rede
+#### Usando Retropropagação para Treinar sua Rede
 
 **Retropropagação** (ou *backpropagation*) é o método padrão para treinar redes neurais. O processo começa com uma **passagem para frente** (*forward pass*), onde a entrada atravessa as camadas da rede para produzir uma saída. Esta saída é comparada ao resultado esperado, gerando um **valor de erro**.
 
 A essência da retropropagação é distribuir esse erro para trás através da rede. O erro é propagado para cada neurônio, atribuindo uma "culpa" por uma porção do erro total. Para cada peso na rede, um **gradiente** é calculado, indicando o quanto o erro mudaria se o peso fosse ajustado. Os pesos são então atualizados usando esse gradiente e a taxa de aprendizado. Ao realizar repetidamente passes para frente e retropropagação, os pesos da rede são aprimorados, permitindo que ela faça previsões mais precisas.
 
-### Testando seu Modelo
+#### Testando seu Modelo
 
 Após o treinamento, é crucial **testar o modelo** em um conjunto de dados diferente daquele usado durante o treinamento, muitas vezes chamado de **conjunto de validação** ou **conjunto de teste**. O objetivo é avaliar o desempenho do modelo em dados que ele nunca viu, o que indica quão bem ele se comportará ao fazer previsões no mundo real.
 
 ---
-
-## O que é PyTorch
+### 4. O que é PyTorch
 
 **PyTorch** é um framework de aprendizado de máquina de código aberto amplamente utilizado para desenvolver e treinar modelos de aprendizado profundo. Ele oferece uma interface flexível e "pythônica" para trabalhar com tensores e construir redes neurais. O PyTorch suporta aceleração por GPU e grafos de computação dinâmicos, o que o torna especialmente adequado para pesquisa e prototipagem rápida.
 
 ---
-
-## PyTorch Tensors
+### 5. PyTorch Tensors
 
 **PyTorch Tensors** são arrays multidimensionais e servem como a estrutura de dados fundamental no PyTorch. Assim como **vetores** e **matrizes** na matemática, os tensores podem ter mais de duas dimensões. Eles facilitam o armazenamento e a manipulação de dados, sejam valores **escalares** (números únicos), vetores ou entidades de maior dimensão. Os tensores desempenham um papel integral nos processos computacionais do PyTorch, lidando com operações numéricas eficientemente, especialmente **operações de matriz** comumente encontradas na **álgebra linear**, que sustentam muitos algoritmos de aprendizado profundo.
 
 ---
-
-## Redes Neurais em PyTorch
+### 6. Redes Neurais em PyTorch
 
 PyTorch oferece ferramentas robustas para a criação e manipulação de redes neurais. Ele simplifica a construção de arquiteturas complexas como o **MLP**.
 
@@ -93,8 +88,7 @@ model.forward(torch.rand(10)) # Testa o método forward com uma entrada aleatór
 ```
 
 ---
-
-## Funções de Perda em PyTorch
+### 7. Funções de Perda em PyTorch
 
 As **funções de perda** são essenciais para guiar a otimização do modelo, quantificando a discrepância entre a saída prevista e os valores alvo reais. Minimizar esse erro treina o modelo para produzir resultados mais precisos. O PyTorch oferece uma suíte abrangente de funções de perda através de seu módulo `torch.nn`.
 
@@ -149,8 +143,7 @@ print(loss_value.item())
 ```
 
 ---
-
-## Otimizadores em PyTorch
+### 8. Otimizadores em PyTorch
 
 Os **otimizadores** em PyTorch são componentes essenciais no processo de treinamento de redes neurais. Sua função principal é ajustar os **parâmetros** do modelo em resposta aos **gradientes** calculados, visando minimizar a função de perda.
 
@@ -175,8 +168,7 @@ optimizer_adam = optim.Adam(model.parameters(), lr=0.01)
 ```
 
 ---
-
-## Conjuntos de Dados e Carregadores de Dados em PyTorch
+### 9. Conjuntos de Dados e Carregadores de Dados em PyTorch
 
 No framework PyTorch, o manuseio e a preparação de dados para treinamento e avaliação são facilitados por duas construções principais: a classe **Dataset** e o utilitário **DataLoader**.
 
@@ -235,8 +227,7 @@ for (num_pairs, products) in dataloader:
 ```
 
 ---
-
-## Loops de Treinamento em PyTorch
+### 10. Loops de Treinamento em PyTorch
 
 Os **loops de treinamento** em PyTorch orquestram a interação entre todos os componentes do PyTorch para otimizar o desempenho do modelo.
 
@@ -311,14 +302,12 @@ model(torch.tensor([3.0, 7.0]))
 ```
 
 ---
-
-## O que é Hugging Face
+### 11. O que é Hugging Face
 
 **Hugging Face** é uma empresa líder em IA que fornece ferramentas e recursos poderosos para processamento de linguagem natural (PNL) e outras tarefas de aprendizado de máquina. Eles oferecem **tokenizadores** (que ajudam os computadores a entender o texto), uma vasta coleção de **modelos** de linguagem prontos para uso e **conjuntos de dados** adequados para tarefas de linguagem.
 
 ---
-
-## Tokenizadores Hugging Face
+### 12. Tokenizadores Hugging Face
 
 A **tokenização** é um passo crucial no pré-processamento de texto em PNL, onde o texto é dividido em unidades menores chamadas **tokens**. A biblioteca de tokenizadores do Hugging Face é robusta e eficiente, construída com **Rust** para velocidade.
 
@@ -347,8 +336,7 @@ print(tokenizer.convert_tokens_to_ids(tokens))
 ```
 
 ---
-
-## Modelos Hugging Face
+### 13. Modelos Hugging Face
 
 A biblioteca Transformers do Hugging Face é famosa por sua vasta coleção de **modelos pré-treinados**, abrangendo múltiplas linguagens e tarefas. Ela oferece acesso a modelos de última geração, como BERT, GPT-2, RoBERTa.
 
@@ -381,8 +369,7 @@ else:
 ```
 
 ---
-
-## Conjuntos de Dados Hugging Face
+### 14. Conjuntos de Dados Hugging Face
 
 A biblioteca **Hugging Face Datasets** foi projetada para acelerar e simplificar o acesso, pré-processamento e gerenciamento de grandes volumes de dados para projetos de aprendizado de máquina. Ela oferece uma API unificada para acessar uma infinidade de **conjuntos de dados**, incluindo texto, áudio e até mesmo imagens. A biblioteca Datasets é construída sobre o **Apache Arrow**, permitindo operações extremamente rápidas e processamento contínuo de grandes conjuntos de dados.
 
@@ -411,8 +398,7 @@ else:
 ```
 
 ---
-
-## Treinadores Hugging Face
+### 15. Treinadores Hugging Face
 
 A classe **Trainer** do Hugging Face oferece uma solução simplificada para treinar e ajustar modelos de aprendizado de máquina. Ela encapsula grande parte da complexidade associada a **loops de treinamento**, avaliação e otimização.
 
@@ -463,8 +449,7 @@ trainer.train() # Inicia o treinamento
 ```
 
 ---
-
-## Modelos Pré-treinados e Transfer Learning
+### 16. Modelos Pré-treinados e Transfer Learning
 
 **Transfer learning** (aprendizagem por transferência) é uma técnica poderosa onde um modelo é pré-treinado em uma vasta quantidade de dados e, em seguida, reutilizado como ponto de partida para muitas outras tarefas. Isso significa que você não precisa começar do zero, e seu modelo provavelmente treinará mais rapidamente e de forma mais confiável.
 
