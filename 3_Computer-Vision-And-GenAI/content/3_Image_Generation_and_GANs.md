@@ -117,7 +117,6 @@ for data, _ in dataloader:
 
     # Obtém previsões do Discriminador
     # nos dados falsos
-    # NOTA: lembre-se de usar .detach()!
     D_pred = D(
         fake_data.detach()
     ).view(-1)
@@ -176,7 +175,7 @@ for data, _ in dataloader:
     D_pred = D(fake_data).view(-1)
 
     # Truque do BCE: em vez de maximizar o BCE quando
-    # y = 0, minimizamos o BCE quando y = 1. Estes
+    y = 0, minimizamos o BCE quando y = 1. Estes
     # são equivalentes, mas a minimização pode ser feita com
     # o algoritmo normal de Gradiente Descendente
     labels.fill_(1)
@@ -317,31 +316,31 @@ O processo envolve a carga do modelo, a geração de um vetor latente e a infer�
 
 ```python
 # Importa o módulo dnnlib (geralmente parte da estrutura StyleGAN)
-# import dnnlib
+import dnnlib
 
 # Importa o módulo torch para operações de tensor
-# import torch
+import torch
 
 # Carrega o modelo StyleGAN-3 a partir de um arquivo Pickle
 # O modelo G representa o Gerador
-# G = dnnlib.util.construct_class_from_path(class_name='training.networks.Generator').eval().to(device)
-# dnnlib.util.load_network_pkl(url, G) # Carrega os pesos do modelo
+G = dnnlib.util.construct_class_from_path(class_name='training.networks.Generator').eval().to(device)
+dnnlib.util.load_network_pkl(url, G) # Carrega os pesos do modelo
 
 # Define a dimensão do vetor latente (normalmente 512 para StyleGAN)
-# latent_dimension = 512
+latent_dimension = 512
 
 # Gera um vetor latente aleatório
-# z = torch.randn([1, latent_dimension], device=device) # [batch_size, latent_dimension]
+z = torch.randn([1, latent_dimension], device=device) # [batch_size, latent_dimension]
 
 # Gera a imagem usando o Gerador
-# img = G(z, None) # O segundo argumento é para rótulos de classe, 'None' para geração incondicional
+img = G(z, None) # O segundo argumento é para rótulos de classe, 'None' para geração incondicional
 
 # Processa a imagem para visualização (ex: normalizar e converter para formato de imagem)
-# img = (img.permute(0, 2, 3, 1) * 127.5 + 128).clamp(0, 255).to(torch.uint8)
+img = (img.permute(0, 2, 3, 1) * 127.5 + 128).clamp(0, 255).to(torch.uint8)
 
 # Exibe a imagem (ex: usando PIL ou matplotlib)
-# from PIL import Image
-# Image.fromarray(img[0].cpu().numpy(), 'RGB').save('cat_image.png') # Salva a imagem gerada
+from PIL import Image
+Image.fromarray(img[0].cpu().numpy(), 'RGB').save('cat_image.png') # Salva a imagem gerada
 ```
 
 Para gerar múltiplas imagens, pode-se criar um vetor latente com uma dimensão de *batch* maior (ex: 16) e usar o Gerador para produzi-las de uma só vez.
