@@ -1,4 +1,3 @@
----
 ### 1. Modelos de Difusão: A Base da IA Generativa Moderna
 
 Modelos de difusão são uma tecnologia essencial na **Inteligência Artificial Generativa** (IA Generativa), utilizada para a criação de diversas mídias, como imagens, vídeos e áudios. A sua funcionalidade é centrada em um processo de duas fases: a fase direta (forward) e a fase reversa (backward).

@@ -1,4 +1,3 @@
----
 ### 1. Introdução aos Vision Transformers
 
 Este curso oferece uma exploração aprofundada dos **Vision Transformers (ViTs)**, uma arquitetura de aprendizado de máquina que se destaca na compreensão de dados visuais. O objetivo é apresentar por que os ViTs estão revolucionando o mundo visual, estabelecendo novos padrões da indústria ao aproveitar vastas quantidades de dados e capacidade computacional.

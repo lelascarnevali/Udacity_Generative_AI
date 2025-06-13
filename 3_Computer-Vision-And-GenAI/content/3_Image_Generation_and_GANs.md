@@ -1,4 +1,3 @@
----
 ### 1. Geração de Imagens e GANs
 
 As Redes Generativas Adversariais (GANs) revolucionaram o campo da Visão Computacional, impulsionando a IA Generativa para o centro das atenções na pesquisa e opinião pública. Modelos GANs são notáveis pela sua capacidade de criar visuais de alta qualidade e operar em velocidades impressionantes.

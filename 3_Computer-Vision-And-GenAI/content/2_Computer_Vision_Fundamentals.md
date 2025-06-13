@@ -1,4 +1,3 @@
----
 ### 1. Introdução à Visão Computacional
 
 A visão computacional é um campo que permite aos computadores "verem" e interpretarem o mundo visual. Ela abrange desde tarefas básicas, como reconhecimento de objetos, até as mais complexas, como detecção de objetos e reconhecimento facial. Compreender essas tarefas é fundamental para entender como os sistemas de visão computacional são aplicados em diversas indústrias, como a condução autônoma e a imagem médica.
