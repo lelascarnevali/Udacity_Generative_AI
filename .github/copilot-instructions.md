@@ -2,8 +2,15 @@
 
 ## Project Summary
 
-`Udacity_Agentic_AI` is a hands-on learning repository for LLM reasoning, planning, and agentic workflows.
+`Udacity_Generative_AI` is a hands-on learning repository for Generative AI — foundation models, LLMs, computer vision, and building real-world GenAI solutions.
 **Stack:** macOS · VS Code · Jupyter Notebooks · Python 3 (.venv)
+
+> **Multi-repo workspace:** This repository is one of three open simultaneously in VS Code:
+> - `Udacity_Agentic_AI` — LLM reasoning, planning, agentic workflows
+> - `Udacity_Generative_AI` — **(this repo)** Foundation models, LLMs, GenAI solutions
+> - `Udacity_Data_Engineer` — Data Engineering with Azure, Spark, and NoSQL
+>
+> Skills and memory are always read from **this repo's** `.github/skills/` and `.github/agents/memory/`.
 
 ## Repository Layout
 
@@ -17,10 +24,10 @@ CLAUDE.md                           ← Claude Code tool adapter
   prompts/documentation_workflow.prompt.md ← /documentation_workflow slash command
   skills/                           ← Agent skills (agent-memory, git-commit, tech-writer, …)
   agents/memory/                    ← Persistent memory files
-1_Prompting_for_Effective_LLM_Reasoning_and_Planning/
-2_Agentic_Workflows/
-3_Building_Agents/
-4_Multi-Agent_Systems/
+1_Foundation-Generative-AI/
+2_LLMs-And-Text-Generation/
+3_Computer-Vision-And-GenAI/
+4_Building_Gen_AI_Solutions/
 ```
 
 ## Critical Rules (from AGENTS.md)

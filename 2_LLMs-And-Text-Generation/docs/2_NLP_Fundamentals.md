@@ -1,13 +1,13 @@
 # Fundamentos de NLP
 
-### 1. O que é NLP?
+### 🧠 O que é NLP?
 
 A **Linguagem Natural** é a linguagem que evoluiu naturalmente através da comunicação humana, como o inglês, mandarim, espanhol e a linguagem de sinais americana. A necessidade de processar e entender a vasta quantidade de informações textuais e de áudio levou ao desenvolvimento do **Processamento de Linguagem Natural (NLP)**.
 
 NLP é a ponte essencial entre a linguagem humana e os computadores, permitindo que as máquinas revelem a estrutura e o significado da linguagem humana, seja ela escrita ou falada. O NLP está na interseção da ciência da computação, linguística e inteligência artificial, e sua importância cresceu exponencialmente na era digital.
 
 ---
-### 2. Aplicações de NLP
+### 🛠️ Aplicações de NLP
 
 O NLP é uma parte fundamental do mundo moderno, com diversas aplicações práticas:
 
@@ -23,7 +23,7 @@ O NLP é uma parte fundamental do mundo moderno, com diversas aplicações prát
 * **Chatbots e Agentes Conversacionais**: Criam um diálogo em linguagem natural, permitindo que os sistemas conversem de forma interativa com os usuários.
 
 ---
-### 3. Desafios em NLP
+### ⚠️ Desafios em NLP
 
 Embora a linguagem pareça simples para os humanos, seu uso por computadores apresenta muitos obstáculos:
 
@@ -35,7 +35,7 @@ Embora a linguagem pareça simples para os humanos, seu uso por computadores apr
 * **Dados Rotulados**: Muitas técnicas de NLP dependem de grandes quantidades de dados corretamente rotulados, o que pode ser dispendioso, exigindo frequentemente a intervenção de especialistas humanos. Modelos de sucesso geralmente utilizam estratégias que dependem menos de rotuladores humanos.
 
 ---
-### 4. Codificação de Dados de Texto
+### 🔤 Codificação de Dados de Texto
 
 Computadores não podem simplesmente "entender" texto. Para realizar tarefas de NLP, precisamos traduzir os dados de texto em algo que um computador possa processar, ou seja, uma **representação numérica**. As estratégias para codificar textos variam.
 
@@ -49,8 +49,21 @@ Para encontrar um equilíbrio entre a retenção de informação exata e a captu
 * **Tokenização**: Identifica "pedaços" ou **tokens** do texto que serão codificados numericamente. A forma como o texto é tokenizado afeta a facilidade com que as etapas subsequentes podem extrair o contexto.
 * **Embeddings**: Concentram-se em codificar o contexto em uma **representação vetorial**. Essa técnica vai além do NLP e é usada em vários campos para representar dados de forma densa e significativa.
 
+#### Pipeline de NLP
+
+```mermaid
+graph LR
+    A["📝 Texto Bruto"] --> B["Normalização"]
+    B --> C["Tokenização"]
+    C --> D["Embedding"]
+    D --> E["🤖 Modelo"]
+    E --> F["📊 Saída"]
+    style A fill:#FF9800,color:#fff
+    style E fill:#4CAF50,color:#fff
+```
+
 ---
-### 5. Normalização e Pré-Tokenização
+### 🧹 Normalização e Pré-Tokenização
 
 A **tokenização** é o processo de transformar texto em uma representação útil para um computador. Ela auxilia na extração de contexto do texto e pode ser dividida em quatro etapas principais.
 
@@ -58,7 +71,7 @@ A **tokenização** é o processo de transformar texto em uma representação ú
 2.  **Pré-tokenização**: Divide o texto em pedaços menores, como palavras. A pré-tokenização não é a tokenização final, mas uma etapa intermediária para preparar o texto para o modelo de tokenização. Isso ajuda a simplificar o vocabulário e a processar o texto de forma mais eficiente.
 
 ---
-### 6. Tokenização e Pós-processamento
+### 🧩 Tokenização e Pós-processamento
 
 Após a normalização e pré-tokenização, chegamos ao modelo de **tokenização**, onde os tokens são criados. O objetivo é formar os blocos de construção, dividindo o texto em partes. A maneira como o texto é dividido é crucial.
 
@@ -71,8 +84,24 @@ Após a normalização e pré-tokenização, chegamos ao modelo de **tokenizaç�
 
 O passo final é o **Pós-processamento**, que aplica transformações adicionais aos tokens, como a adição de tags de início e fim de frase. Essas tags são úteis para fornecer contexto ao modelo, indicando a estrutura da sentença.
 
+#### Comparativo: Métodos de Tokenização
+
+| Método | Vocabulário | Vantagem | Desvantagem |
+|---|---|---|---|
+| Caractere | Muito pequeno (~26) | Sem tokens OOV | Pouco contexto semântico |
+| Palavra | Muito grande | Rico em contexto | Muitos tokens OOV |
+| Subpalavra | Moderado | Equilíbrio contexto/OOV | Requer algoritmo sofisticado |
+
+#### Comparativo: Algoritmos de Subpalavra
+
+| Algoritmo | Usado Por | Princípio |
+|---|---|---|
+| BPE (Byte Pair Encoding) | GPT-2, RoBERTa | Merge iterativo dos pares mais frequentes |
+| WordPiece | BERT, Electra | Maximiza verossimilhança do vocabulário |
+| SentencePiece | T5, ALBERT, XLNet | Tokenização direta sem pré-tokenização |
+
 ---
-### 7. Hugging Face e Tokenizadores
+### 🤗 Hugging Face e Tokenizadores
 
 A **Hugging Face** é uma empresa que desenvolve ferramentas para aplicações de aprendizado de máquina e IA, incluindo **tokenizadores pré-treinados** que simplificam o trabalho com NLP. A API de tokenização é muito flexível:
 
@@ -108,7 +137,9 @@ No entanto, é importante notar que durante a decodificação, informações de 
 Os tokenizadores também possuem propriedades importantes, como o `model_max_length`, que indica o comprimento máximo de sequência que o modelo associado ao tokenizador pode lidar. Sequências mais longas que esse limite podem ser truncadas, ou você pode precisar de um tokenizador diferente. Além disso, os tokenizadores pré-treinados vêm com **tokens especiais**, como o token de "desconhecido" (`<unk>`), ou tokens que marcam o início e o fim de uma sequência. A presença e o significado desses tokens especiais variam entre os modelos e os tokenizadores, pois dependem da tarefa e do treinamento do modelo. É fundamental estar ciente desses tokens ao trabalhar com tokenizadores pré-treinados.
 
 ---
-### 8. Embeddings
+### 📐 Embeddings
+
+> 💡 **Conceito-chave:** Embeddings capturam semântica — palavras com significados semelhantes ficam "próximas" no espaço vetorial, permitindo que modelos compreendam relações de significado.
 
 Enquanto a tokenização converte texto em IDs numéricos para identificação, os **Embeddings** vão além, codificando o **contexto** em uma **representação vetorial**. Essencialmente, um embedding é uma lista de números (um vetor) onde cada valor numérico não é aleatório, mas é criado para capturar o significado e as relações do texto.
 
@@ -119,7 +150,7 @@ $\text{vetor(rei)} - \text{vetor(homem)} + \text{vetor(mulher)} \approx \text{ve
 Embora esses exemplos geralmente usem duas dimensões para visualização, os embeddings podem ter um número arbitrário de dimensões, o que lhes permite capturar nuances complexas da linguagem. Eles são amplamente utilizados em várias aplicações de NLP, pois permitem que os modelos compreendam a semântica das palavras e frases.
 
 ---
-### 9. Modelos NLP Lidando com Sequências
+### 🔄 Modelos NLP Lidando com Sequências
 
 Com o texto codificado através de tokenização e embeddings, esses **codificadores** podem ser alimentados a modelos para tarefas específicas de NLP. Modelos de **Deep Learning** são particularmente eficazes quando há dados suficientes.
 
@@ -136,7 +167,7 @@ Podemos pensar nos dados de texto como uma **sequência** (de caracteres, palavr
 Uma abordagem comum para construir modelos sequência a sequência é usar uma arquitetura de **codificador-decodificador**. O codificador processa a sequência de entrada e a transforma em uma representação de contexto. O decodificador, então, utiliza essa representação para gerar a sequência de saída.
 
 ---
-### 10. Redes Neurais Recorrentes (RNNs)
+### 🔁 Redes Neurais Recorrentes (RNNs)
 
 As **Redes Neurais Recorrentes (RNNs)** são um tipo de arquitetura de rede neural projetada especificamente para lidar com dados sequenciais, como texto. Assim como os humanos processam a linguagem palavra por palavra, as RNNs processam o texto um pedaço de cada vez, utilizando o contexto das palavras anteriores para entender as subsequentes.
 
@@ -153,7 +184,7 @@ No entanto, as RNNs possuem algumas desvantagens notáveis:
 * **Natureza Sequencial**: O treinamento das RNNs é inerentemente sequencial, o que significa que cada passo de tempo depende do anterior. Isso dificulta a paralelização do treinamento, tornando-o mais lento em comparação com outras arquiteturas de rede neural.
 
 ---
-### 11. Geração de Texto: Modelo Autoregressivo
+### ✍️ Geração de Texto: Modelo Autoregressivo
 
 A **Geração de Texto** é uma tarefa de NLP onde o modelo cria seu próprio texto, que pode ser novo e original. Isso pode envolver gerar respostas abstrativas para perguntas, continuar conversas em chatbots ou estender uma sequência de texto mantendo um estilo ou tom específico.
 
@@ -168,7 +199,7 @@ Um tipo comum de modelo para geração de texto é o **modelo autoregressivo**. 
 Modelos autoregressivos são capazes de gerar sequências de comprimento arbitrário, pois continuamente realimentam os tokens gerados anteriormente para o contexto. O contexto não se limita apenas ao último token, mas tenta manter um registro dos tokens anteriores também. A escolha do próximo token é feita através de uma amostragem probabilística, onde tokens mais prováveis têm uma chance maior de serem selecionados. Essa abordagem permite que os modelos autoregressivos gerem texto coerente e criativo.
 
 ---
-### 12. Métodos de Amostragem para Geração de Texto
+### 🎲 Métodos de Amostragem para Geração de Texto
 
 Modelos autoregressivos, ao gerar texto, tendem a repetir os mesmos tokens, pois o próximo token é baseado nos anteriores, o que pode levar a um ciclo de repetição. Para combater isso e introduzir mais variedade e criatividade, existem diferentes métodos de amostragem:
 
@@ -187,6 +218,30 @@ Modelos autoregressivos, ao gerar texto, tendem a repetir os mesmos tokens, pois
     * Isso permite uma seleção mais dinâmica de tokens, adaptando-se à distribuição de probabilidade. Se a distribuição for "pontuda" (alguns tokens muito prováveis), poucos tokens serão considerados. Se for "plana" (muitos tokens com probabilidades semelhantes), mais tokens serão considerados.
 
 Amostragem de temperatura e Top-K (ou Top-P) podem ser usadas juntas para um controle mais refinado sobre o processo de geração de texto, ajustando tanto a criatividade quanto a coerência. O ajuste desses parâmetros é crucial para gerar textos que sejam tanto inovadores quanto contextualmente relevantes.
+
+#### Comparativo: Métodos de Amostragem
+
+| Método | Descrição | Efeito |
+|---|---|---|
+| Temperatura | Ajusta a distribuição de probabilidade dos tokens | Baixa → focado; Alta → criativo |
+| Top-K | Considera apenas os K tokens mais prováveis | Limita o vocabulário de amostragem |
+| Top-P (Nucleus) | Considera tokens até atingir probabilidade cumulativa P | Adaptativo à distribuição |
+
+#### Fórmula: Softmax com Temperatura
+
+$$P(w_i) = \frac{e^{z_i / T}}{\sum_j e^{z_j / T}}$$
+
+Onde $z_i$ são os logits do modelo e $T$ é a temperatura. Quando $T \to 0$, a distribuição se concentra no token mais provável (greedy); quando $T \to \infty$, a distribuição se torna uniforme.
+
+---
+
+## 🎯 Key Takeaways
+
+- **NLP é a ponte entre linguagem humana e computadores** — permitindo processamento, compreensão e geração de texto
+- **Tokenização por subpalavra** (BPE, WordPiece) é o padrão para LLMs modernos, equilibrando contexto e cobertura de vocabulário
+- **Embeddings capturam semântica** — representações vetoriais onde proximidade = similaridade de significado
+- **Modelos autoregressivos** geram texto token por token, realimentando a saída como entrada
+- **Temperatura e Top-P** controlam a criatividade da geração, com trade-off entre diversidade e coerência
 
 ---
 

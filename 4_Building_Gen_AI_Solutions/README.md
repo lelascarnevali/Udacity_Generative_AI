@@ -2,6 +2,31 @@
 
 ## Project: HomeMatch - Personalized Real Estate Agent
 
+## 📚 Study Materials
+
+Guias de estudo detalhados para cada tema do módulo:
+
+| # | Tópico | Arquivo |
+|---|---|---|
+| 1 | Introdução ao Desenvolvimento de Apps Generativas | [docs/1_Introduction_to_Building_Generative_Apps.md](docs/1_Introduction_to_Building_Generative_Apps.md) |
+| 2 | Construindo Soluções com Bancos de Dados Vetoriais | [docs/2_Building_Solutions_with_Vector_Databases.md](docs/2_Building_Solutions_with_Vector_Databases.md) |
+| 3 | Desenvolvendo Soluções com LangChain | [docs/3_Developing%20Generative_AI_Solutions_with_LangChain.md](docs/3_Developing%20Generative_AI_Solutions_with_LangChain.md) |
+
+## 🚀 Quick Start
+
+```bash
+# 1. Instalar dependências
+pip install -r requirements.txt
+
+# 2. Configurar variável de ambiente
+export OPENAI_API_KEY="sua-chave-aqui"
+
+# 3. Executar o notebook do projeto
+jupyter notebook project_4.ipynb
+```
+
+---
+
 ### Project Overview
 In this project, I built an application named "HomeMatch" that revolutionizes how clients interact with real estate listings by providing a personalized experience tailored to individual preferences.
 
@@ -15,7 +40,7 @@ This application aims to make the property search process more engaging and tail
 
 ### Project Instructions
 
-In order to create the "HomeMatch" application, you can use these steps for guidance. Build the "HomeMatch" application in a Jupyter Notebook or Python file(s). A workspace is provided on the next page for you to use that has several dependencies already installed. It's good practice to create a GitHub repository to develop your application. You'll submit a zip file containing the application and supporting documentation files. Your project will be assessed against this [rubric](opens in a new tab).
+In order to create the "HomeMatch" application, you can use these steps for guidance. Build the "HomeMatch" application in a Jupyter Notebook or Python file(s). A workspace is provided on the next page for you to use that has several dependencies already installed. It's good practice to create a GitHub repository to develop your application. You'll submit a zip file containing the application and supporting documentation files. Your project will be assessed against the project rubric.
 
 #### Step 1: Setting Up the Python Application
 Initialize a Python Project: Create a new Python project, setting up a virtual environment and installing necessary packages like LangChain, a suitable LLM library (e.g., OpenAI's GPT), and a vector database package compatible with Python (e.g., ChromaDB or LanceDB). If you don't wish to create your files from scratch, starter files are available in the workspace on the next page as an application skeleton.
@@ -65,7 +90,7 @@ LLM Augmentation: For each retrieved listing, use the LLM to augment the descrip
 Maintaining Factual Integrity: Ensure that the augmentation process enhances the appeal of the listing without altering factual information.
 
 #### Step 7: Deliverables and Testing
-Test your "HomeMatch" application and make sure it meets all of the requirements in the [rubric](opens in a new tab). Your project code will be run when it's assessed. Enter different "buyer preferences" and ensure it works.
+Test your "HomeMatch" application and make sure it meets all of the requirements in the project rubric. Your project code will be run when it's assessed. Enter different "buyer preferences" and ensure it works.
 Jupyter Notebook/Python Program: Compile the application code in a Jupyter notebook or a standalone Python program. Ensure the code is well-commented and logically structured.
 Example Outputs: Include example outputs showcasing how user preferences are processed and how the application generates personalized listing descriptions. You can include these in comments in your application or in a Jupyter notebook that's saved with outputs.
 

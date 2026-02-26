@@ -1,11 +1,23 @@
 # Construindo Datasets Personalizados para LLMs
 
-### 1. Introdução a Datasets para Modelos de Linguagem Grande (LLMs)
+### 🎯 Introdução a Datasets para LLMs
 
 Modelos de Linguagem Grande (LLMs) podem ser treinados para diversas tarefas, como geração de resumos de livros ou resposta a perguntas sobre vulnerabilidades de cibersegurança. Para **ajustar (fine-tune)** um LLM a uma tarefa específica, é essencial ter um dataset apropriado. Muitos LLMs atuais são proficientes em **resposta a perguntas zero-shot**, o que significa que podem responder a perguntas para as quais não foram explicitamente treinados, exibindo propriedades emergentes. Essa capacidade é particularmente útil em domínios abertos, onde as respostas podem ser inferidas a partir de datasets comuns como a Wikipédia, mesmo sem dados explícitos para a pergunta exata.
 
+#### Pipeline de Construção de Datasets
+
+```mermaid
+graph LR
+    A["🌐 Coleta"] --> B["🧹 Limpeza"]
+    B --> C["🔤 Tokenização"]
+    C --> D["📦 Dataset"]
+    D --> E["🤖 Fine-Tuning"]
+    style A fill:#FF9800,color:#fff
+    style E fill:#4CAF50,color:#fff
+```
+
 ---
-### 2. Coleta de Dados da Internet
+### 🌐 Coleta de Dados da Internet
 
 Idealmente, os dados para treinar modelos viriam de fontes internas, bem formatadas e fáceis de usar. No entanto, na prática, essas fontes são raras. Geralmente, lida-se com dados externos mal formatados ou incompletos, que precisam ser complementados ou usados diretamente. Após a coleta, o objetivo é produzir um dataset bem formatado.
 
@@ -14,6 +26,15 @@ Existem duas abordagens principais para coletar dados da internet:
 * **APIs (Application Programming Interfaces)**: São interfaces projetadas para acesso programático a dados hospedados. Geralmente, é necessário registrar-se e obter uma chave de API. As requisições a APIs costumam retornar dados estruturados, como documentos JSON ou XML. APIs são excelentes para coleta de dados e são frequentemente integradas a sistemas maiores, com suporte para coleta.
 
 * **Web Scraping**: É o processo de extrair dados de websites diretamente, sem o uso de APIs. Embora legal em muitos casos (com raras exceções), o scraping nem sempre é bem-vindo. É crucial verificar a licença de quaisquer dados coletados e, em caso de dúvida, consultar um advogado, especialmente para dados de código com licenciamento complexo.
+
+> ⚠️ **Licenciamento:** Sempre verifique a licença dos dados coletados. Para dados de código, o licenciamento pode ser especialmente complexo. Em caso de dúvida, consulte um advogado.
+
+#### Comparativo: APIs vs. Web Scraping
+
+| Método | Vantagem | Desvantagem | Quando Usar |
+|---|---|---|---|
+| APIs | Dados estruturados, confiáveis e documentados | Requer registro/chave, pode ter limites de taxa | Fontes com API oficial disponível |
+| Web Scraping | Flexível, acessa qualquer site público | Frágil, pode quebrar com mudanças no site | Quando não há API disponível |
 
     Para o scraping básico, pode-se usar as bibliotecas Python `requests` e `BeautifulSoup`.
 
@@ -64,19 +85,21 @@ Existem duas abordagens principais para coletar dados da internet:
     options.add_argument("--window-size=1920,1080")
 
     # É necessário especificar o caminho para o chromedriver no seu sistema
-     driver = webdriver.Chrome(options=options, executable_path='/path/to/chromedriver')
-     driver.get("https://www.udacity.com/")
+    driver = webdriver.Chrome(options=options, executable_path='/path/to/chromedriver')
+    driver.get("https://www.udacity.com/")
 
-     page_source = driver.page_source
-     with open("udacity_home.html", "w") as f:
-         f.write(page_source)
+    page_source = driver.page_source
+    with open("udacity_home.html", "w") as f:
+        f.write(page_source)
 
-     driver.quit()
+    driver.quit()
     ```
     No código acima, `options.headless = True` é fundamental para evitar a abertura de uma janela do navegador, o que é crucial ao raspar muitas páginas ou em sistemas com recursos limitados. `options.add_argument()` pode ser usado para passar argumentos adicionais, como o tamanho da janela, para tornar o sistema mais "real". Após a requisição GET bem-sucedida, o conteúdo da página está em `driver.page_source`. É uma boa prática executar `driver.quit()` para evitar problemas de escopo e liberar recursos.
 
 ---
-### 3. Avaliação da Qualidade dos Dados
+### 📊 Avaliação da Qualidade dos Dados
+
+> 💡 **Garbage In = Garbage Out:** Dados ruins levam a modelos ruins. É mais fácil corrigir problemas nos dados brutos do que em datasets processados. Para LLMs, dados limpos são mais importantes que grandes volumes.
 
 Enquanto cientistas de dados e engenheiros de Machine Learning lidam principalmente com dados tabulares (como em planilhas), onde a qualidade dos dados se refere a valores ausentes, campos inconsistentes e tratamento de valores categóricos, os Grandes Modelos de Linguagem (LLMs) são diferentes. Eles trabalham com entradas e saídas não numéricas, focando em duas propriedades principais para a modelagem de linguagem:
 
@@ -86,7 +109,7 @@ Enquanto cientistas de dados e engenheiros de Machine Learning lidam principalme
 A qualidade dos dados é crucial. Dados ruins levam a modelos ruins ("garbage in, garbage out"). É mais fácil lidar com problemas de dados como erros de digitação, espaços indesejados e caracteres ausentes em arquivos de origem do que em objetos `Dataset` processados. Para tarefas de LLM, é mais importante ter dados limpos do que grandes volumes de dados.
 
 ---
-### 4. Limpeza de Dados
+### 🧹 Limpeza de Dados
 
 A limpeza de dados é um passo essencial após a coleta, especialmente quando se lida com dados raspados da web. Embora seja fácil coletar HTML de uma página, o desafio é o que fazer com ele depois. O conteúdo HTML bruto geralmente não é legível e contém muitas tags e scripts irrelevantes.
 
@@ -148,7 +171,7 @@ print(f"Texto final (minúsculas): {final_text}")
 A limpeza de dados é um processo iterativo e depende muito do contexto e da finalidade do dataset.
 
 ---
-### 5. Tarefas de Modelagem de Linguagem
+### 🤖 Tarefas de Modelagem de Linguagem
 
 Modelos de Linguagem Grande (LLMs) são baseados na **arquitetura Transformer**, introduzida em 2017 por Vaswani et al. do Google Brain. O avanço principal dos Transformers é o uso do **mecanismo de atenção** para realizar tarefas de processamento de linguagem natural (PLN). Modelos como BERT (Bidirectional Encoder Representations from Transformers) e a família GPT (Generative Pre-trained Transformer) são exemplos proeminentes de Transformers. Esses LLMs são frequentemente chamados de **modelos de fundação** pela Universidade de Stanford, pois servem como base para modelos que são ajustados para tarefas específicas.
 
@@ -162,8 +185,17 @@ Dentro da modelagem de linguagem, existem várias tarefas de interesse:
 * **Clustering (Agrupamento)**: Agrupar textos semanticamente semelhantes, onde modelos BERT são preferíveis por mapear entradas de comprimento arbitrário para um embedding de comprimento fixo, permitindo o cálculo de similaridade.
 * **Modelos Seq-to-Seq (Sequence-to-Sequence)**: Modelos como T5, que contêm tanto encoder quanto decoder, são ideais para tarefas de tradução.
 
+#### Comparativo: Tarefas de Modelagem
+
+| Tarefa | Descrição | Exemplo de Modelo |
+|---|---|---|
+| CLM (Causal Language Modeling) | Prediz o próximo token na sequência | GPT-2, GPT-3 |
+| MLM (Masked Language Modeling) | Preenche tokens mascarados no texto | BERT, RoBERTa |
+| Classificação de Texto | Categoriza texto em classes | BERT (fine-tuned) |
+| Seq2Seq | Mapeia sequência de entrada para saída | T5, BART |
+
 ---
-### 6. Estruturação e Armazenamento de Dados Brutos
+### 📦 Estruturação e Armazenamento de Dados Brutos
 
 Ao trabalhar com dados textuais, há a liberdade e a responsabilidade de armazenar dados de texto brutos. Embora seja possível colocar esses dados diretamente em um objeto `Dataset` (como o do pacote `datasets`), há desvantagens:
 
@@ -200,7 +232,7 @@ print("Dataset loaded!")
 Para fazer upload para o HuggingFace Hub, siga as instruções específicas do HuggingFace. Ao usar um dataset do hub, utilize `load_dataset` em vez de `load_from_disk`.
 
 ---
-### 7. Construindo Datasets para Modelagem de Linguagem Causal
+### 🔧 Construindo Datasets para Modelagem de Linguagem Causal
 
 A construção de um dataset para **modelagem de linguagem causal (CLM)** e o **ajuste fino (fine-tuning)** de um modelo GPT-2 nesse dataset é um processo comum.
 
@@ -272,6 +304,16 @@ As etapas para construir o dataset incluem:
 
      trainer.train()
     ```
+
+---
+
+## 🎯 Key Takeaways
+
+- **Qualidade > Quantidade** — dados limpos e bem formatados são mais valiosos que grandes volumes de dados ruidosos
+- **APIs são preferíveis ao scraping** quando disponíveis, por serem mais estáveis e estruturadas
+- **Garbage in = garbage out** — sempre invista tempo na limpeza e validação dos dados antes do treinamento
+- **Armazene dados brutos** separadamente do Dataset processado para permitir reprocessamento futuro
+- **Escolha a tarefa de modelagem correta** (CLM, MLM, Seq2Seq) com base no objetivo do fine-tuning
 
 ---
 

@@ -2,6 +2,20 @@
 
 ## Project: AI Photo Editing with Inpainting
 
+## 📚 Study Guides
+
+Guias de estudo detalhados para cada tema do módulo:
+
+| # | Tópico | Arquivo |
+|---|---|---|
+| 1 | Introdução à Geração de Imagens | [docs/1_Introduction_to_Image_Generation.md](docs/1_Introduction_to_Image_Generation.md) |
+| 2 | Fundamentos de Visão Computacional | [docs/2_Computer_Vision_Fundamentals.md](docs/2_Computer_Vision_Fundamentals.md) |
+| 3 | Geração de Imagens e GANs | [docs/3_Image_Generation_and_GANs.md](docs/3_Image_Generation_and_GANs.md) |
+| 4 | Modelos de Visão Computacional Baseados em Transformers | [docs/4_Transformer-Based_Computer_Vision_Models.md](docs/4_Transformer-Based_Computer_Vision_Models.md) |
+| 5 | Modelos de Difusão | [docs/5_Diffusion_Models.md](docs/5_Diffusion_Models.md) |
+
+---
+
 ### Project Overview
 In this project, I built an app that allows you to select a subject and then change its background, OR keep the background and change the subject.
 
@@ -68,4 +82,4 @@ Project 3 - [Notebook](project_3.ipynb)
 #### Interactive App Usage Demonstration
 The following screenshot demonstrates the interactive Gradio application in use. An image of a car was uploaded, points were used to generate a mask around the car, and a prompt was entered to change the background.
 
-![Interactive App Usage Demonstration](Images/gradio_example.png)
+![Interactive App Usage Demonstration](images/gradio_example.png)

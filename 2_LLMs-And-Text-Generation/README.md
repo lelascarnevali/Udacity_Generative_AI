@@ -1,6 +1,20 @@
-# Udacity Project - Foundation Generative AI
+# Udacity Project - LLMs and Text Generation
 
 ## Project: Build Your Own Custom Chatbot
+
+## 📚 Conteúdo de Estudo
+
+Guias de estudo detalhados para cada tema do módulo:
+
+| # | Tópico | Arquivo |
+|---|---|---|
+| 1 | Introdução aos LLMs | [docs/1_Introduction_to_LLMs.md](docs/1_Introduction_to_LLMs.md) |
+| 2 | Fundamentos de PLN | [docs/2_NLP_Fundamentals.md](docs/2_NLP_Fundamentals.md) |
+| 3 | Transformers e Mecanismo de Atenção | [docs/3_Transformers_and_Attention_Mechanism.md](docs/3_Transformers_and_Attention_Mechanism.md) |
+| 4 | Geração Aumentada por Recuperação (RAG) | [docs/4_Retrieval_Augmented_Generation.md](docs/4_Retrieval_Augmented_Generation.md) |
+| 5 | Construindo Datasets Customizados | [docs/5_Build_Custom_Datasets_for_LLMs.md](docs/5_Build_Custom_Datasets_for_LLMs.md) |
+
+---
 
 #### Data Sources
 

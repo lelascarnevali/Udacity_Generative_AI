@@ -1,13 +1,20 @@
 # AI Agent Instructions
 
-This repository hosts Udacity Agentic AI exercises focused on effective prompting for LLM reasoning and planning. Keep guidance minimal, precise, and aligned with the actual workspace.
+This repository hosts Udacity Generative AI exercises covering foundation models, LLMs, computer vision, and building real-world GenAI solutions. Keep guidance minimal, precise, and aligned with the actual workspace.
 
 > **Single source of truth** for all AI assistants (Claude Code, GitHub Copilot, Cursor, etc.).
 > Each tool has its own adapter file that maps generic tool references to its native equivalents.
 
+> **Multi-repo workspace:** This repository is one of three open simultaneously in VS Code:
+> - `Udacity_Agentic_AI` — LLM reasoning, planning, agentic workflows
+> - `Udacity_Generative_AI` — **(this repo)** Foundation models, LLMs, GenAI solutions
+> - `Udacity_Data_Engineer` — Data Engineering with Azure, Spark, and NoSQL
+>
+> Skills and memory are always read from **this repo's** `.github/skills/` and `.github/agents/memory/`.
+
 ## 1. Repository Context
 
-- Purpose: hands-on notebooks and lightweight utilities for LLM reasoning and planning.
+- Purpose: hands-on notebooks and lightweight utilities for Generative AI — foundation models, fine-tuning, text generation, computer vision, and building GenAI solutions.
 - Stack: macOS + VS Code + Jupyter + Python.
 
 ## 2. Repository Structure
@@ -30,19 +37,21 @@ This repository hosts Udacity Agentic AI exercises focused on effective promptin
 │       ├── prompt-engineering/  skill-creator/  crafting-effective-readmes/
 ├── .claude/                                   # Claude Code specific agents
 │   └── agents/plan.md                         # Plan agent (Claude format)
-├── 1_Prompting_for_Effective_LLM_Reasoning_and_Planning/
+├── 1_Foundation-Generative-AI/
+│   ├── docs/
+│   ├── exercises/
+│   └── model/                                 # Saved model checkpoints
+├── 2_LLMs-And-Text-Generation/
+│   ├── docs/
+│   ├── exercises/
+│   └── data/
+├── 3_Computer-Vision-And-GenAI/
+│   ├── docs/
+│   ├── exercises/
+│   └── images/
+├── 4_Building_Gen_AI_Solutions/
 │   ├── docs/
 │   └── exercises/
-├── 2_Agentic_Workflows/
-│   ├── docs/
-│   └── exercises/
-├── 3_Building_Agents/
-│   ├── docs/
-│   └── exercises/
-├── 4_Multi-Agent_Systems/
-│   ├── docs/
-│   └── exercises/
-├── scripts/                                   # Reusable Python utilities for notebooks
 └── .venv/                                     # Local Python virtual environment (optional)
 ```
 

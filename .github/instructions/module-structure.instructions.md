@@ -27,7 +27,7 @@ N_Module_Name/
 ## Modules
 | Folder | Topic |
 |---|---|
-| `1_Prompting_for_Effective_LLM_Reasoning_and_Planning/` | Role-based prompting, CoT, ReAct, prompt chaining, feedback loops |
-| `2_Agentic_Workflows/` | Agentic workflow modeling, modern AI agents |
-| `3_Building_Agents/` | Agent construction patterns |
-| `4_Multi-Agent_Systems/` | Multi-agent orchestration |
+| `1_Foundation-Generative-AI/` | Foundation models, fine-tuning with LoRA, model adaptation |
+| `2_LLMs-And-Text-Generation/` | Large Language Models, text generation, NLP fundamentals |
+| `3_Computer-Vision-And-GenAI/` | Computer vision with GenAI, image generation models |
+| `4_Building_Gen_AI_Solutions/` | End-to-end GenAI solutions, RAG, semantic search |

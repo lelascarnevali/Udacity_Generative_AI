@@ -1,11 +1,39 @@
 # Geração Aumentada por Recuperação (RAG)
 
-### 1. Introdução
+### 🎯 Introdução
 
 Este curso tem como objetivo principal capacitar o aluno a construir um **chatbot de perguntas e respostas (Q&A) personalizado** utilizando a tecnologia **OpenAI**. Diferentemente dos modelos de conclusão de texto genéricos da OpenAI, o foco aqui é criar um bot capaz de fornecer respostas altamente precisas e relevantes, especialmente para **dados recentes** que podem não ter sido incluídos no treinamento original do modelo. Para isso, o fluxo de trabalho envolve a comparação da pergunta do usuário com um **conjunto de dados personalizado** para identificar contextos relevantes, que são então usados para construir um **prompt customizado** para o modelo de texto da OpenAI. O curso explora as ferramentas e técnicas necessárias para desenvolver esse chatbot, com atividades práticas para consolidar o aprendizado.
 
+#### Pipeline RAG — Visão Geral
+
+| Etapa | Descrição | Ferramenta |
+|---|---|---|
+| Coleta de Dados | Obter dados de APIs ou scraping | Requests, Selenium |
+| Limpeza | Normalizar e formatar texto | Pandas, regex |
+| Embedding | Converter textos em vetores semânticos | OpenAI Embeddings API |
+| Indexação | Armazenar embeddings para busca | DataFrame / Vector DB |
+| Query | Converter pergunta em embedding | OpenAI Embeddings API |
+| Recuperação | Buscar contextos mais similares | Similaridade de Cosseno |
+| Construção do Prompt | Montar prompt com contexto e pergunta | Python / tiktoken |
+| Geração | Enviar prompt ao LLM | OpenAI Completion API |
+
+```mermaid
+graph LR
+    A["🌐 Coleta"] --> B["🧹 Limpeza"]
+    B --> C["📐 Embedding"]
+    C --> D["📊 Índice"]
+    E["❓ Query"] --> F["📐 Embedding "]
+    F --> G["🔍 Recuperação"]
+    D --> G
+    G --> H["📝 Prompt"]
+    H --> I["🤖 LLM"]
+    I --> J["💬 Resposta"]
+    style D fill:#4CAF50,color:#fff
+    style I fill:#2196F3,color:#fff
+```
+
 ---
-### 2. OpenAI e Prompt Engineering
+### 🤖 OpenAI e Prompt Engineering
 
 A **OpenAI**, fundada em 2015, é uma renomada empresa de pesquisa em inteligência artificial, conhecida por seus modelos como **DALL-E** e **ChatGPT**. Seus modelos de linguagem são extremamente eficazes na compreensão e geração de texto, e sua API permite resolver uma vasta gama de tarefas relacionadas ao processamento de linguagem natural. A interação fundamental com esses modelos se dá através de **prompts de texto**.
 
@@ -25,7 +53,7 @@ openai.api_key = "SUA_CHAVE_AQUI"
 ```
 
 ---
-### 3. Coleta de Dados
+### 🌐 Coleta de Dados
 
 A base para um chatbot personalizado é um **conjunto de dados personalizado**. Este dataset é essencial para fornecer ao modelo o **contexto** necessário para gerar respostas diferenciadas. Um dataset personalizado pode incluir:
 
@@ -40,7 +68,7 @@ As fontes para esses dados podem ser variadas:
 Este curso se concentra na coleta de dados a partir de **fontes de dados da web**.
 
 ---
-### 4. Coleta de Dados com a Biblioteca Requests
+### 📡 Coleta de Dados com a Biblioteca Requests
 
 A biblioteca **Requests** do Python é a ferramenta fundamental para recuperar dados da web. O processo de coleta de dados envolve os seguintes passos:
 
@@ -87,7 +115,7 @@ print(text_content[:500])
 ```
 
 ---
-### 5. Limpeza de Dados com Pandas
+### 🧹 Limpeza de Dados com Pandas
 
 Antes que um conjunto de dados possa ser utilizado para personalizar um chatbot, ele precisa ser carregado e limpo em um formato que seja facilmente manipulável e utilizável. A biblioteca **Pandas** é a ferramenta ideal para essa finalidade, permitindo a manipulação de dados em formato de **planilha**, com linhas e colunas organizadas em **DataFrames**. As etapas essenciais de limpeza de dados incluem:
 
@@ -129,7 +157,7 @@ print(df.head())
 ```
 
 ---
-### 6. Traduzindo Palavras em Números
+### 🔢 Traduzindo Palavras em Números
 
 Para que os computadores possam processar e "compreender" a linguagem natural, é essencial converter palavras e frases em representações numéricas. Contudo, essa tradução não pode ser arbitrária; ela deve capturar as **relações de significado** inerentes aos dados, permitindo que os modelos de IA identifiquem padrões e determinem o conteúdo mais relevante.
 
@@ -145,7 +173,7 @@ Alguns métodos de tradução numérica, embora existentes, são inadequados par
 É evidente que métodos mais sofisticados são necessários para capturar a **semântica** das palavras e permitir que os modelos de IA entendam o significado subjacente da linguagem.
 
 ---
-### 7. Embeddings de Texto
+### 📐 Embeddings de Texto
 
 Os métodos tradicionais como ASCII e one-hot encoding são insuficientes para chatbots porque não conseguem capturar as complexas relações de significado entre as palavras. A solução para essa limitação são os **embeddings de texto**.
 
@@ -157,7 +185,7 @@ Os métodos tradicionais como ASCII e one-hot encoding são insuficientes para c
 * **Modelos pré-treinados**: Podemos aproveitar modelos de embedding pré-treinados, como os oferecidos pela OpenAI. Esses modelos já aprenderam a mapear palavras e frases para suas representações semânticas a partir de vastos volumes de texto, economizando o tempo e o recurso de treinar um modelo de embedding do zero.
 
 ---
-### 8. Criando um Índice de Embeddings para Nosso Chatbot
+### 📊 Criando um Índice de Embeddings para Nosso Chatbot
 
 Com os dados devidamente estruturados e limpos, o próximo passo crucial é a criação de um **índice de embeddings**. Este índice é o mecanismo que permitirá ao chatbot localizar rapidamente os contextos mais relevantes para qualquer consulta do usuário.
 
@@ -220,7 +248,9 @@ print(f"Shape do DataFrame com embeddings: {df.shape}")
 ```
 
 ---
-### 9. Busca Semântica de Texto
+### 🔍 Busca Semântica e Similaridade de Cosseno
+
+> 💡 **Busca semântica** compreende o *significado* da consulta, não apenas as palavras exatas — é o coração do sistema RAG.
 
 Com os embeddings do nosso conjunto de dados devidamente criados, podemos agora implementar a **busca semântica de texto** para encontrar os dados mais relevantes para as consultas dos usuários.
 
@@ -228,6 +258,13 @@ A **busca semântica** difere fundamentalmente de uma **busca por palavra-chave*
 
 * **Busca por palavra-chave**: Opera por correspondência exata de termos. Por exemplo, uma busca por "reparo de torneira pingando" retornaria apenas documentos que contêm precisamente essas palavras. É uma busca literal e não considera o significado.
 * **Busca semântica**: Compreende o **significado** e o **contexto** da consulta. Se o usuário perguntar "Como consertar um vazamento na pia?", uma busca semântica seria capaz de encontrar resultados sobre "reparo de torneira pingando", mesmo que as palavras exatas não estejam presentes, porque o significado subjacente é semelhante. Essa capacidade de inferir o sentido torna a busca muito mais poderosa e flexível.
+
+#### Comparativo: Busca Semântica vs. Keyword
+
+| Tipo | Princípio | Vantagem | Limitação |
+|---|---|---|---|
+| Busca por Keyword | Correspondência exata de termos | Simples e rápida | Não compreende sinônimos nem contexto |
+| Busca Semântica | Similaridade de vetores de embedding | Compreende significado e contexto | Requer embeddings pré-computados |
 
 A busca semântica é realizada através do cálculo da **similaridade** entre o embedding da pergunta do usuário e os embeddings de todos os textos presentes no nosso conjunto de dados. A métrica mais comum e eficaz para isso é a **similaridade de cosseno** (ou sua inversa, a **distância de cosseno**).
 
@@ -240,10 +277,15 @@ A busca semântica é realizada através do cálculo da **similaridade** entre o
     * Um valor de **1** indica que os vetores são ortogonais (sem relação).
     * Um valor de **2** indica que os vetores têm direções opostas (similaridade mínima).
 
+#### Fórmula: Similaridade de Cosseno
+
+$$\cos(\theta) = \frac{\vec{a} \cdot \vec{b}}{||\vec{a}|| \cdot ||\vec{b}||}$$
+
+Onde $\vec{a}$ e $\vec{b}$ são vetores de embedding. Valor 1 = idênticos; 0 = ortogonais; -1 = opostos.
+
 Para a busca semântica em nosso chatbot, buscamos os textos com a **menor distância de cosseno** (ou, equivalentemente, a maior similaridade de cosseno) em relação à pergunta, pois esses são os que carregam o significado mais próximo da consulta.
 
----
-### 10. Encontrando a Distância de Cosseno em Python
+#### 💻 Implementação: Distância de Cosseno em Python
 
 Para aplicar o conceito de distância de cosseno no nosso conjunto de dados personalizado e encontrar os textos mais relevantes, seguimos os seguintes passos em Python:
 
@@ -300,8 +342,7 @@ def get_rows_sorted_by_relevance(question, df_with_embeddings):
 
 ```
 
----
-### 11. Busca de Texto Semântica em Python
+#### 📊 Extração e Ranking dos Resultados
 
 Após o cálculo das distâncias de cosseno, a etapa seguinte é identificar e extrair as linhas do DataFrame que demonstram a menor distância em relação à pergunta do usuário. Essas linhas representam os textos com maior **relevância semântica** para a consulta.
 
@@ -313,10 +354,12 @@ A implementação em Python segue estes passos:
 
 É importante ressaltar que, embora a distância de cosseno seja um excelente indicador de relevância semântica, ela não impõe uma ordem cronológica ou lógica perfeita. Por exemplo, a quinta linha mais relevante em termos de significado pode ser, cronologicamente, o primeiro evento mencionado no dataset. A distância de cosseno reflete a similaridade de significado, não a ordem temporal ou a exatidão factual isolada. No entanto, para o objetivo de fornecer um contexto rico e pertinente ao modelo de linguagem, essa relevância semântica é de suma importância.
 
-A função `get_rows_sorted_by_relevance` encapsula essa lógica, realizando o embedding da pergunta, calculando as distâncias e retornando o DataFrame ordenado. O código para esta seção é a mesma função `get_rows_sorted_by_relevance` apresentada na seção 10, que já realiza todas essas etapas.
+A função `get_rows_sorted_by_relevance` encapsula essa lógica, realizando o embedding da pergunta, calculando as distâncias e retornando o DataFrame ordenado. O código para esta seção é a mesma função `get_rows_sorted_by_relevance` apresentada na seção anterior, que já realiza todas essas etapas.
 
 ---
-### 12. Compondo um Prompt de Texto
+### 📝 Compondo um Prompt de Texto
+
+> ⚠️ **Regra de Fallback Obrigatória:** Sempre inclua no prompt uma instrução para o modelo responder "Não sei" quando a pergunta não puder ser respondida com o contexto fornecido. Isso previne alucinações.
 
 Com o contexto relevante devidamente identificado e extraído do nosso conjunto de dados personalizado, o próximo passo crucial é integrá-lo a um **prompt de texto** que será submetido ao modelo de conclusão de texto da OpenAI. A construção deste prompt é essencial para guiar o modelo a utilizar as informações fornecidas e a gerar uma resposta apropriada e contextualizada.
 
@@ -330,7 +373,9 @@ Um prompt de texto típico para um chatbot de Q&A baseado em contexto segue uma 
 A eficácia deste passo reside em como os embeddings, criados nas etapas anteriores, são utilizados para fornecer ao bot o contexto necessário. Essa abordagem permite que o modelo de linguagem gere respostas que são não apenas coerentes, mas também altamente precisas e personalizadas de acordo com os dados específicos que lhe foram apresentados.
 
 ---
-### 13. Quantidade de Dados a Incluir no Contexto
+### 📏 Quantidade de Dados a Incluir no Contexto
+
+> ⚠️ **Limite de Tokens:** Cada modelo possui um limite máximo de tokens que inclui tanto o prompt de entrada quanto a resposta gerada. Exceder esse limite resulta em truncamento ou erro da API.
 
 Uma consideração crítica ao compor o prompt é determinar a **quantidade ideal de dados** a serem incluídos no contexto. Embora os dados recuperados estejam ordenados por relevância, a inclusão de "tudo" não é eficiente nem logisticamente viável.
 
@@ -342,7 +387,7 @@ A limitação primária da quantidade de dados é imposta pelo conceito de **tok
 É absolutamente essencial compreender e respeitar o limite de tokens do modelo escolhido. Utilizar a maior quantidade de dados possível dentro desse limite permite que o modelo tenha mais informações para gerar uma resposta rica e detalhada. Contudo, exceder esse limite resultará em um erro da API ou no truncamento da entrada, o que pode comprometer a qualidade e a completude da resposta.
 
 ---
-### 14. Usando Tokens na OpenAI
+### 🎫 Usando Tokens na OpenAI
 
 A OpenAI estabelece seus preços de uso dos modelos com base no consumo de **tokens**, e cada modelo possui um limite específico de tokens que pode processar por requisição. Por exemplo, o modelo `text-davinci-003` tinha um limite aproximado de 4.100 tokens, e o `gpt-3.5-turbo-instruct` tem um limite de 4.096 tokens. Este limite é de suma importância, pois engloba tanto o **prompt customizado** (que inclui as instruções, a pergunta e o contexto relevante extraído do nosso dataset) quanto a **resposta gerada pelo modelo**.
 
@@ -383,7 +428,7 @@ print(f"O prompt de exemplo tem {num_tokens_prompt} tokens.")
 ```
 
 ---
-### 15. Compondo um Prompt de Texto com Contagem Máxima de Tokens
+### 🔧 Compondo Prompt com Contagem Máxima de Tokens
 
 Para construir um prompt de texto que otimize o aproveitamento do limite de tokens de um modelo OpenAI, é fundamental integrar a lógica de seleção de contexto baseada em similaridade com a contagem de tokens fornecida pela biblioteca `tiktoken`.
 
@@ -468,7 +513,7 @@ def create_prompt(question, df_with_embeddings, max_prompt_tokens):
 ```
 
 ---
-### 16. Consultando um Modelo de Conclusão
+### 🤖 Consultando um Modelo de Conclusão
 
 O estágio final na construção do chatbot envolve o envio do **prompt customizado** ao modelo de conclusão de texto da OpenAI e a recuperação da resposta gerada. Esta etapa é relativamente direta, uma vez que a maior parte do trabalho complexo – incluindo coleta de dados, limpeza, geração de embeddings e composição do prompt – já foi concluída.
 
@@ -531,6 +576,16 @@ def answer_question(question, df_with_embeddings, max_prompt_tokens=1800, max_an
         return "Desculpe, não consegui gerar uma resposta no momento."
 
 ```
+
+---
+
+## 🎯 Key Takeaways
+
+- **RAG combina recuperação + geração** — o LLM responde com base em contexto atualizado, não apenas nos dados de treinamento
+- **Busca semântica por similaridade de cosseno** é o coração do pipeline: $\cos(\theta) = \frac{\vec{a} \cdot \vec{b}}{||\vec{a}|| \cdot ||\vec{b}||}$
+- **Regra de fallback** ("Não sei") é obrigatória para prevenir alucinações do modelo
+- **Gerenciamento de tokens** com tiktoken é essencial para maximizar o contexto sem exceder os limites do modelo
+- **Dados limpos e embeddings de qualidade** são a fundação de respostas precisas e relevantes
 
 ---
 
