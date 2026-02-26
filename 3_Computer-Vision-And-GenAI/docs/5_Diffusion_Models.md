@@ -1,3 +1,5 @@
+# Modelos de Difusão
+
 ### 1. Modelos de Difusão: A Base da IA Generativa Moderna
 
 Modelos de difusão são uma tecnologia essencial na **Inteligência Artificial Generativa** (IA Generativa), utilizada para a criação de diversas mídias, como imagens, vídeos e áudios. A sua funcionalidade é centrada em um processo de duas fases: a fase direta (forward) e a fase reversa (backward).
@@ -190,3 +192,7 @@ No processo de **inferência** (geração de imagens):
     ```
 
 A biblioteca Hugging Face Diffusers é uma ferramenta poderosa para testar e experimentar a geração de IA generativa, incluindo vídeos e outras capacidades de visão computacional.
+
+---
+
+[← Modelos de Visão Computacional Baseados em Transformers](4_Transformer-Based_Computer_Vision_Models.md)

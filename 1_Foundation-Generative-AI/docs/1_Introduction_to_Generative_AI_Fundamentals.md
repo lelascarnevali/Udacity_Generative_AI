@@ -1,3 +1,5 @@
+# Introdução aos Fundamentos de IA Generativa
+
 ### 1. O Que é IA Generativa - Parte 1
 
 A **IA Generativa** é uma área transformadora da inteligência artificial que permite aos sistemas produzir conteúdo original, como texto, imagens, música e outros tipos de dados. Diferente da IA tradicional que foca em classificação e regressão (por exemplo, identificar se uma imagem é de um cão ou um gato), a IA Generativa adiciona uma dimensão criativa, preenchendo a lacuna entre análise de dados e produção inovadora.
@@ -161,3 +163,7 @@ Este exercício prático simula um cenário real de startup educacional que busc
     * **Foco na Geração de Conteúdo Menor**: Utilizar o LLM para gerar pequenos "prompts" ou "resumos" de aulas, que podem ser mais facilmente processados e combinados com outras informações.
     * **Engenharia de Prompt**: Otimizar a forma como as perguntas são formuladas para o LLM, tornando-as mais específicas e eficientes.
 * **Lição Principal**: **LLMs** são poderosos, mas não são a solução para todos os problemas, especialmente quando a escalabilidade é uma preocupação. A combinação inteligente de IA Generativa com técnicas tradicionais de processamento de dados é crucial para construir sistemas eficientes e robustos em grande escala.
+
+---
+
+[Fundamentos de Deep Learning →](2_Deep_Learning_Fundamentals.md)

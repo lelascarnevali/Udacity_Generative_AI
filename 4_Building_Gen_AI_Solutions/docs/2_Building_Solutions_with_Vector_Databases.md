@@ -1,3 +1,5 @@
+# Construindo Soluções com Bancos de Dados Vetoriais
+
 ### 1. Introdução aos Bancos de Dados Vetoriais
 
 Os **Large Language Models (LLMs)** são uma tecnologia revolucionária, mas seu conhecimento é limitado ao conjunto de dados em que foram treinados. Os **bancos de dados vetoriais** são uma solução para estender arbitrariamente a base de conhecimento de um modelo, atuando como a "memória de longo prazo" para a IA generativa. Este material fornecerá uma compreensão sólida dos conceitos básicos de **busca vetorial**, seus casos de uso e como utilizar bancos de dados vetoriais para armazenar e recuperar informações.
@@ -60,3 +62,7 @@ A busca vetorial é crucial para a IA generativa, mas também possui muitas outr
 ### 7. Gradio para Interfaces de Usuário
 
 **Gradio** é uma ferramenta que permite criar rapidamente interfaces de usuário interativas para modelos de aprendizado de máquina. No contexto de busca vetorial, Gradio pode ser usado para construir um **chatbot de IA** que interaja com os resultados de busca vetorial. Ele facilita a visualização dos resultados de uma busca multimodal, permitindo que os usuários insiram consultas e vejam as informações recuperadas em tempo real. Isso agiliza o processo de experimentação e demonstração de aplicações de IA, tornando-as acessíveis mesmo para aqueles sem conhecimento profundo de programação.
+
+---
+
+[← Introdução ao Desenvolvimento de Aplicações Generativas](1_Introduction_to_Building_Generative_Apps.md) · [Desenvolvendo Soluções de IA Generativa com LangChain →](3_Developing%20Generative_AI_Solutions_with_LangChain.md)

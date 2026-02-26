@@ -1,3 +1,5 @@
+# Adaptando Modelos de Fundação
+
 ### 1. O que é Adaptação?
 
 **Adaptação**, no contexto de modelos de fundação, refere-se ao processo de personalização desses sistemas abrangentes de IA para melhor se adequarem a aplicações específicas ou para incorporar informações atualizadas. Isso é crucial para aproveitar todo o potencial dos modelos para tarefas ou domínios particulares. A adaptação pode ser alcançada ajustando (**fine-tuning**) ou re-treinando um modelo de fundação pré-treinado com novos dados. Essa adaptação sob medida não apenas aprimora o desempenho do modelo em tarefas especializadas, mas também o mantém atualizado.
@@ -114,3 +116,7 @@ Para superar os desafios do fine-tuning tradicional, foram desenvolvidas abordag
 Uma abordagem PEFT é congelar a maioria dos parâmetros do modelo e atualizar apenas uma pequena porção deles, como uma camada final (também conhecida como "cabeça" do modelo). Outra técnica comum é o uso de **Adaptadores**. Adaptadores são pequenos componentes adicionais inseridos no modelo, e apenas os parâmetros desses adaptadores são atualizados durante o treinamento, enquanto os pesos do modelo original permanecem congelados.
 
 **LoRA (Low-Rank Adaptation)** é um exemplo de adaptador, que demonstra que um adaptador não precisa necessariamente ser colocado entre as camadas do modelo. A colocação e a arquitetura dos adaptadores são áreas ativas de pesquisa, pois são cruciais para a eficácia das técnicas PEFT. O PEFT oferece uma solução para tornar a adaptação de modelos de base mais acessível e eficiente.
+
+---
+
+[← Modelos de Fundação](3_Foundation_Models.md)

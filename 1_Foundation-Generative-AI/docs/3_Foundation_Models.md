@@ -1,3 +1,5 @@
+# Modelos de Fundação
+
 ### 1. O que é um Modelo de Fundação?
 
 Um **modelo de fundação** é um tipo de modelo de inteligência artificial treinado em uma vasta quantidade de dados em escala, possuindo a capacidade de realizar uma ampla gama de tarefas com o mínimo de treinamento adicional. Eles são "fundacionais" porque servem como base para inúmeras aplicações, similar a como uma fundação suporta diversas estruturas arquitetônicas. Sua versatilidade deriva da habilidade de aprender e generalizar a partir de grandes conjuntos de dados (texto, imagens, etc.), permitindo-lhes compreender e gerar conteúdo em vários domínios e formatos, mesmo em tarefas para as quais não foram explicitamente treinados.
@@ -139,3 +141,7 @@ Modelos de fundação, sendo modelos de IA grandes e computacionalmente intensiv
     * **Dependência e Excesso de Confiança:** A dependência excessiva da IA para a tomada de decisões pode levar a um declínio na experiência e no pensamento crítico humanos. A confiança cega em sistemas de IA pode ter consequências graves se os modelos forem falhos ou enviesados.
     * **Segurança:** As capacidades avançadas dos modelos de fundação podem ser usadas maliciosamente, representando novos desafios de segurança, como ciberataques mais sofisticados ou a criação de armas autônomas.
     * **Ameaça Existencial à Humanidade:** O potencial da IA ser usada para fins maliciosos, como armas autônomas, levanta preocupações sobre uma ameaça existencial à humanidade.
+
+---
+
+[← Fundamentos de Deep Learning](2_Deep_Learning_Fundamentals.md) · [Adaptando Modelos de Fundação →](4_Adapting_Foundation_Models.md)

@@ -1,3 +1,5 @@
+# Modelos de Visão Computacional Baseados em Transformers
+
 ### 1. Introdução aos Vision Transformers
 
 Este curso oferece uma exploração aprofundada dos **Vision Transformers (ViTs)**, uma arquitetura de aprendizado de máquina que se destaca na compreensão de dados visuais. O objetivo é apresentar por que os ViTs estão revolucionando o mundo visual, estabelecendo novos padrões da indústria ao aproveitar vastas quantidades de dados e capacidade computacional.
@@ -93,3 +95,5 @@ O SAM passa por três estágios de treinamento:
 3.  **Totalmente Automático**: Mínima ou nenhuma intervenção humana, apoiado por um motor de dados que gera máscaras de treinamento para segmentação autônoma de imagens complexas.
 
 ---
+
+[← Geração de Imagens e GANs](3_Image_Generation_and_GANs.md) · [Modelos de Difusão →](5_Diffusion_Models.md)

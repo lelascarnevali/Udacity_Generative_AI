@@ -1,3 +1,5 @@
+# Geração Aumentada por Recuperação (RAG)
+
 ### 1. Introdução
 
 Este curso tem como objetivo principal capacitar o aluno a construir um **chatbot de perguntas e respostas (Q&A) personalizado** utilizando a tecnologia **OpenAI**. Diferentemente dos modelos de conclusão de texto genéricos da OpenAI, o foco aqui é criar um bot capaz de fornecer respostas altamente precisas e relevantes, especialmente para **dados recentes** que podem não ter sido incluídos no treinamento original do modelo. Para isso, o fluxo de trabalho envolve a comparação da pergunta do usuário com um **conjunto de dados personalizado** para identificar contextos relevantes, que são então usados para construir um **prompt customizado** para o modelo de texto da OpenAI. O curso explora as ferramentas e técnicas necessárias para desenvolver esse chatbot, com atividades práticas para consolidar o aprendizado.
@@ -529,3 +531,7 @@ def answer_question(question, df_with_embeddings, max_prompt_tokens=1800, max_an
         return "Desculpe, não consegui gerar uma resposta no momento."
 
 ```
+
+---
+
+[← Transformers e Mecanismo de Atenção](3_Transformers_and_Attention_Mechanism.md) · [Construindo Datasets Personalizados para LLMs →](5_Build_Custom_Datasets_for_LLMs.md)

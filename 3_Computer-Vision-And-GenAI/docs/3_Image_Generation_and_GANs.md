@@ -1,3 +1,5 @@
+# Geração de Imagens e GANs
+
 ### 1. Geração de Imagens e GANs
 
 As Redes Generativas Adversariais (GANs) revolucionaram o campo da Visão Computacional, impulsionando a IA Generativa para o centro das atenções na pesquisa e opinião pública. Modelos GANs são notáveis pela sua capacidade de criar visuais de alta qualidade e operar em velocidades impressionantes.
@@ -343,3 +345,7 @@ Image.fromarray(img[0].cpu().numpy(), 'RGB').save('cat_image.png') # Salva a ima
 ```
 
 Para gerar múltiplas imagens, pode-se criar um vetor latente com uma dimensão de *batch* maior (ex: 16) e usar o Gerador para produzi-las de uma só vez.
+
+---
+
+[← Fundamentos de Visão Computacional](2_Computer_Vision_Fundamentals.md) · [Modelos de Visão Computacional Baseados em Transformers →](4_Transformer-Based_Computer_Vision_Models.md)

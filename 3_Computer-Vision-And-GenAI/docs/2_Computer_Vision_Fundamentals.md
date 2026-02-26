@@ -1,3 +1,5 @@
+# Fundamentos de Visão Computacional
+
 ### 1. Introdução à Visão Computacional
 
 A visão computacional é um campo que permite aos computadores "verem" e interpretarem o mundo visual. Ela abrange desde tarefas básicas, como reconhecimento de objetos, até as mais complexas, como detecção de objetos e reconhecimento facial. Compreender essas tarefas é fundamental para entender como os sistemas de visão computacional são aplicados em diversas indústrias, como a condução autônoma e a imagem médica.
@@ -247,3 +249,7 @@ A visão computacional é um campo em rápida evolução, com avanços contínuo
 Desde a compreensão da representação de imagens como arrays 2D e valores RGB, até o domínio de tarefas essenciais como classificação, localização, detecção de objetos e segmentação de instâncias, o campo tem se aprofundado na forma como os dados visuais são estruturados e processados. A importância das convoluções e a diferença entre a visão computacional clássica, com sua dependência de engenharia manual de características, e a visão computacional profunda, com sua capacidade de aprendizado automático de características, são aspectos cruciais.
 
 A avaliação de desempenho, especialmente em tarefas de localização através de métricas como a Intersecção sobre União (IOU), destaca os desafios e considerações para desenvolver sistemas de visão computacional precisos e eficientes. A integração de modelos fundamentais como o YOLO, que processa imagens de forma eficiente para detecção de objetos em tempo real, exemplifica a direção futura do campo. À medida que a pesquisa e o desenvolvimento continuam, a visão computacional promete impactar ainda mais áreas da nossa vida, desde a medicina até a interação humano-computador.
+
+---
+
+[← Introdução à Geração de Imagens](1_Introduction_to_Image_Generation.md) · [Geração de Imagens e GANs →](3_Image_Generation_and_GANs.md)

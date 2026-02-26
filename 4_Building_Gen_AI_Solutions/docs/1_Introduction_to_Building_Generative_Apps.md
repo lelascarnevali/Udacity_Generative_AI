@@ -1,3 +1,5 @@
+# Introdução ao Desenvolvimento de Aplicações Generativas
+
 ### 1. Introdução ao Desenvolvimento de Aplicações e Soluções com IA Generativa
 
 Bem-vindo à introdução ao desenvolvimento de aplicações e soluções de IA generativa. O foco principal é no design e desenvolvimento de recursos e aplicações que integram modelos de IA generativa. A IA generativa está se tornando uma parte essencial do desenvolvimento de software, impulsionando aplicações desde mecanismos de busca até o conteúdo de mídia que consumimos diariamente. Estes modelos aprimoram diversas funcionalidades de produtos de software, incluindo funções de busca, criação de conteúdo, chatbots, assistência interativa e recursos de personalização.
@@ -164,3 +166,7 @@ Este capítulo aborda o design e a construção de um assistente de gerenciament
     * **Educação e Feedback:** Educar os usuários sobre a interação com o sistema e fornecer feedback e confirmação claros são cruciais em UIs conversacionais.
     * **Reconhecimento da Intenção do Usuário:** É central para este processo de design, construindo sistemas para reconhecer a intenção através da compreensão da linguagem, mapeando-as para respostas ou ações específicas, o que envolve análise da linguagem, compreensão da semântica e identificação de ações-chave.
     * **Avatares:** Adicionam uma dimensão visual e pessoal à experiência do chatbot, tornando as interações mais envolventes e pessoais. Avanços tecnológicos tornaram as interações baseadas em avatares mais realistas e dinâmicas.
+
+---
+
+[Construindo Soluções com Bancos de Dados Vetoriais →](2_Building_Solutions_with_Vector_Databases.md)

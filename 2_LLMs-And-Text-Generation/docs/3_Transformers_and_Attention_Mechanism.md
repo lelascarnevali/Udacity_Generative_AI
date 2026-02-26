@@ -1,3 +1,5 @@
+# Transformers e Mecanismo de Atenção
+
 ### 1. Histórico dos Modelos de Linguagem
 Historicamente, as **Redes Neurais Recorrentes (RNNs)**, como as **LSTMs (Long Short-Term Memory)**, foram as arquiteturas predominantes para tarefas de Processamento de Linguagem Natural (PNL). No entanto, as RNNs processam os tokens de entrada sequencialmente, um por um, consolidando-os em um único **vetor de contexto** ou **estado oculto**. Esse método as tornava suscetíveis ao **problema do gradiente evanescente**, onde o estado oculto podia perder informações importantes em sequências muito longas.
 
@@ -115,3 +117,7 @@ Os Transformers se destacam por suas capacidades que revolucionaram o campo da I
 * **Data Requirements (Requisitos de Dados)**: Para atingir seu potencial máximo, os Transformers exigem enormes quantidades de dados para pré-treinamento, o que pode ser um desafio para domínios com dados limitados.
 
 * **Quadratic Complexity (Complexidade Quadrática)**: A complexidade do mecanismo de atenção é quadrática em relação ao comprimento da sequência. Isso significa que, à medida que a sequência de entrada se torna mais longa, o tempo de computação e o uso de memória aumentam exponencialmente, tornando-se um gargalo para sequências muito grandes. Novas pesquisas estão explorando otimizações como a "atenção esparsa" para mitigar esse problema.
+
+---
+
+[← Fundamentos de NLP](2_NLP_Fundamentals.md) · [Geração Aumentada por Recuperação (RAG) →](4_Retrieval_Augmented_Generation.md)

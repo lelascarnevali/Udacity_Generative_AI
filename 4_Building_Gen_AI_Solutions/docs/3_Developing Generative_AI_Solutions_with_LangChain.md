@@ -1,3 +1,5 @@
+# Desenvolvendo Soluções de IA Generativa com LangChain
+
 ### 1. Introdução ao Desenvolvimento de Soluções de IA Generativa
 Historicamente, a integração de capacidades de IA em aplicações era um desafio considerável. Isso envolvia a coleta de vastas quantidades de dados, a contratação de cientistas de dados e especialistas em aprendizado de máquina, a construção e treinamento de modelos especializados, e a avaliação de seu desempenho. Todo esse processo exigia tempo e recursos significativos, e poderia levar semanas, ou até meses.
 
@@ -407,3 +409,7 @@ As *chains* no LangChain permitem orquestrar operações complexas, combinando m
     * **Exemplo**: Extrair transcrições de vídeo, remover carimbos de data/hora e, em seguida, resumir o texto.
 
 Cada uma dessas cadeias serve a um propósito distinto, permitindo aplicações mais sofisticadas e sensíveis ao contexto de modelos de IA em vários cenários.
+
+---
+
+[← Construindo Soluções com Bancos de Dados Vetoriais](2_Building_Solutions_with_Vector_Databases.md)

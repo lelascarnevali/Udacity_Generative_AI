@@ -1,3 +1,5 @@
+# Introdução aos LLMs
+
 ### 1. Histórico
 
 A evolução dos **Large Language Models (LLMs)** teve um marco inicial em maio de 2017, com o lançamento do artigo "Attention Is All You Need" pelo Google, que introduziu o **modelo Transformer**. Inicialmente, o treinamento desse modelo demandava cerca de 10K **petaFLOPs** (operações de ponto flutuante, que representam $10^{15}$ operações por segundo). Desde então, observou-se um crescimento exponencial na capacidade de processamento e no número de parâmetros de modelos baseados na arquitetura Transformer, culminando no **GPT-3**. Essa progressão impulsionou significativamente a pesquisa em Inteligência Artificial, levando ao desenvolvimento de modelos cada vez mais complexos e eficientes. Atualmente, o cenário está mudando, com o surgimento de modelos menores e mais especializados que conseguem superar modelos maiores em tarefas específicas.
@@ -151,3 +153,7 @@ A criação de *prompts* eficazes para LLMs pode ser categorizada em design e en
     * Modelos maiores com mais parâmetros geralmente oferecem maior capacidade, mas também podem ser mais "teimosos" em suas respostas.
     * Pequenos modelos podem ser mais suscetíveis a loops de repetição se as penalidades de frequência/presença não forem ajustadas.
     * Testar e experimentar diferentes configurações e estratégias de *prompting* é essencial para otimizar o desempenho do LLM para seu caso de uso específico.
+
+---
+
+[Fundamentos de NLP →](2_NLP_Fundamentals.md)

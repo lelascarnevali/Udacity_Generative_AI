@@ -1,3 +1,5 @@
+# Fundamentos de Deep Learning
+
 ### 1. O que é um Perceptron?
 
 O **perceptron** é um dos blocos construtivos mais **fundamentais da inteligência artificial**, atuando como um **classificador binário** simples. Ele recebe uma lista de números (um **vetor de números**), multiplica cada um por um **peso** específico, soma todos esses valores e então passa o resultado por uma **função de ativação**. A função de ativação original do perceptron era uma **função degrau**, que resultava em uma saída de 0 ou 1.
@@ -461,3 +463,7 @@ O conceito é simples:
 3.  Você cria um **conjunto de dados menor e específico para a tarefa** com rótulos corretos.
 4.  O modelo pré-treinado é passado por um loop de treinamento usando seu conjunto de dados menor. Os pesos do modelo são atualizados.
 5.  Como o modelo já havia sido treinado em um vasto conjunto de dados, o treinamento com seu conjunto de dados menor é muito mais rápido e eficiente.
+
+---
+
+[← Introdução aos Fundamentos de IA Generativa](1_Introduction_to_Generative_AI_Fundamentals.md) · [Modelos de Fundação →](3_Foundation_Models.md)

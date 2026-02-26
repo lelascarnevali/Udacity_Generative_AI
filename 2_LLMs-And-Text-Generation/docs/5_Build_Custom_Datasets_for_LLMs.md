@@ -1,3 +1,5 @@
+# Construindo Datasets Personalizados para LLMs
+
 ### 1. Introdução a Datasets para Modelos de Linguagem Grande (LLMs)
 
 Modelos de Linguagem Grande (LLMs) podem ser treinados para diversas tarefas, como geração de resumos de livros ou resposta a perguntas sobre vulnerabilidades de cibersegurança. Para **ajustar (fine-tune)** um LLM a uma tarefa específica, é essencial ter um dataset apropriado. Muitos LLMs atuais são proficientes em **resposta a perguntas zero-shot**, o que significa que podem responder a perguntas para as quais não foram explicitamente treinados, exibindo propriedades emergentes. Essa capacidade é particularmente útil em domínios abertos, onde as respostas podem ser inferidas a partir de datasets comuns como a Wikipédia, mesmo sem dados explícitos para a pergunta exata.
@@ -270,3 +272,7 @@ As etapas para construir o dataset incluem:
 
      trainer.train()
     ```
+
+---
+
+[← Geração Aumentada por Recuperação (RAG)](4_Retrieval_Augmented_Generation.md)

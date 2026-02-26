@@ -1,3 +1,5 @@
+# Introdução à Geração de Imagens
+
 ### 1. Introdução à Geração de Imagens com IA Generativa
 
 A Inteligência Artificial Generativa (IA Generativa) revolucionou a criação de obras artísticas e profissionais, que antes exigiam habilidades especializadas e muito tempo. No campo da visão computacional, a IA Generativa é utilizada para resolver problemas reais, como a geração de imagens para marketing ou a limpeza de fotos pessoais. Modelos avançados como o Stable Diffusion XL podem gerar imagens a partir de texto. Uma imagem é essencialmente uma coleção ordenada de pixels, que pode ser representada como um ponto em um espaço de alta dimensão. Por exemplo, uma pequena imagem em escala de cinza de 3x3 pixels se torna um vetor em um espaço de nove dimensões. A maioria das combinações de pixels não resultam em imagens realistas; estas são como "ilhas" em um vasto "universo de ruído". Um exemplo prático é o dataset MNIST, onde as imagens de dígitos manuscritos, quando representadas em um espaço bidimensional após a redução de dimensionalidade, mostram que as imagens realistas ocupam apenas pequenas regiões. Modelos generativos aprendem a estrutura e a distribuição dessas imagens realistas para gerar novas imagens plausíveis, focando nos "picos" de uma distribuição multimodal.
@@ -86,3 +88,7 @@ O treinamento e uso de modelos de IA Generativa, como o Stable Diffusion, aprese
     * **Respeito aos Direitos Autorais**: Para trabalhos profissionais, use modelos treinados em material licenciado e nunca utilize imagens ou a imagem de outras pessoas sem consentimento.
 
 Em suma, o treinamento e uso de modelos de IA Generativa em visão computacional é um processo complexo que transcende a expertise técnica. Requer uma compreensão das implicações éticas, um compromisso com a transparência e uma abordagem proativa para abordar vieses e preocupações legais.
+
+---
+
+[Fundamentos de Visão Computacional →](2_Computer_Vision_Fundamentals.md)

@@ -1,3 +1,5 @@
+# Fundamentos de NLP
+
 ### 1. O que é NLP?
 
 A **Linguagem Natural** é a linguagem que evoluiu naturalmente através da comunicação humana, como o inglês, mandarim, espanhol e a linguagem de sinais americana. A necessidade de processar e entender a vasta quantidade de informações textuais e de áudio levou ao desenvolvimento do **Processamento de Linguagem Natural (NLP)**.
@@ -185,3 +187,7 @@ Modelos autoregressivos, ao gerar texto, tendem a repetir os mesmos tokens, pois
     * Isso permite uma seleção mais dinâmica de tokens, adaptando-se à distribuição de probabilidade. Se a distribuição for "pontuda" (alguns tokens muito prováveis), poucos tokens serão considerados. Se for "plana" (muitos tokens com probabilidades semelhantes), mais tokens serão considerados.
 
 Amostragem de temperatura e Top-K (ou Top-P) podem ser usadas juntas para um controle mais refinado sobre o processo de geração de texto, ajustando tanto a criatividade quanto a coerência. O ajuste desses parâmetros é crucial para gerar textos que sejam tanto inovadores quanto contextualmente relevantes.
+
+---
+
+[← Introdução aos LLMs](1_Introduction_to_LLMs.md) · [Transformers e Mecanismo de Atenção →](3_Transformers_and_Attention_Mechanism.md)
